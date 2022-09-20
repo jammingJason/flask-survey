@@ -1,6 +1,10 @@
-{% extends 'base.html' %}
-{% block title %}Survey Questions{% endblock %}
-{% block content %}
+{% extends 'base.html' %} {% block title %}Survey Questions{% endblock %} {%
+block content %}
 <h1>Thank you for taking the survey</h1>
-{{responses}}
+<form action="/">
+  <p>{{responses}}</p>
+  <button name="btnStartOver" id="btnStartOver" type='submit' value='Start Survey Over'>
+</form>
+  Start Survey Over
+</button>
 {% endblock %}

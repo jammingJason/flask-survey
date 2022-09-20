@@ -1,5 +1,6 @@
-startSurvey = document.querySelector('#btnStart')
-startSurvey.addEventListener('click', function(evt){
-    evt.preventDefault()
-    document.location = '/question/0'
-})
+startSurvey = document.querySelector('#btnStart');
+
+startSurvey.addEventListener('click', function (evt) {
+  evt.preventDefault();
+  document.location = '/question/0';
+});

@@ -5,6 +5,9 @@
 <h3>{{satisfaction_survey.instructions}}</h3>
 <form action="/answer/{{questionID}}" method="post" name="frmMain">
     <div>
+        {% for msg in get_flashed_messages() %}
+        <p id="flashMessage">{{ msg }}</p>
+        {% endfor %}
         {{satisfaction_survey.questions[questionID | int].question}}
         {% for choice in satisfaction_survey.questions[questionID | int].choices%}
         <input type="radio" value="{{choice}}" name="rdoQuestion" id="{{choice}}">
