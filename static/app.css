@@ -1,3 +1,9 @@
 #flashMessage {
     color: red;
 }
+
+button{
+    margin: 10px;
+    background-color: aliceblue;
+    box-shadow: 2px 2px 2px;
+}

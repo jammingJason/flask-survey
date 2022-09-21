@@ -1,4 +1,5 @@
-from flask import Flask, request, render_template, redirect, flash, jsonify
+from crypt import methods
+from flask import Flask, request, render_template, redirect, flash, jsonify, session
 from flask_debugtoolbar import DebugToolbarExtension
 from random import randint, choice, sample
 from surveys import *
@@ -35,6 +36,7 @@ def post_answer(questionID):
     if int(questionID) != len(responses):
         redirect('/question/' + str(questionID))
     responses.append(request.form['rdoQuestion'])
+    session['responses'] = responses
     if int(questionID) < len(satisfaction_survey.questions) - 1:
         nextID = int(questionID) + 1
         return redirect('/question/' + str(nextID))
@@ -52,3 +54,10 @@ def get_survey():
 def thank_you():
 
     return render_template('thankYou.html', responses=responses)
+
+
+@app.route('/set_session', methods=['post'])
+def set_session():
+    responses.clear()
+    session['responses'] = []
+    return redirect('/question/0')

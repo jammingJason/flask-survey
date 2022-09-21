@@ -5,6 +5,8 @@
 <h3>{{satisfaction_survey.instructions}}</h3>
 
 <div>
-    <button id="btnStart">Start Survey</button>
+    <form action="/set_session" method="POST">
+        <button id="btnStart">Start Survey</button>
+    </form>
 </div>
 {% endblock %}
